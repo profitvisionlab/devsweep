@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.devsweep.scan</string>
+
+  <!-- scan only. This job never passes `apply`. -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string>
+    <string>-I</string>
+    <string>__DEVSWEEP__/devsweep.py</string>
+    <string>scan</string>
+    <string>--root</string>
+    <string>__HOME__/Developer</string>
+  </array>
+
+  <!-- Monday 09:00 local time -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Weekday</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>__HOME__/.devsweep/logs/scan.log</string>
+  <key>StandardErrorPath</key>
+  <string>__HOME__/.devsweep/logs/scan.err</string>
+
+  <key>Nice</key>
+  <integer>10</integer>
+  <key>LowPriorityIO</key>
+  <true/>
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>
